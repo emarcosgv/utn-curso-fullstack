@@ -1,0 +1,12 @@
+.body{
+    background-color: whitesmoke;
+    background-image: url("../images/5-tipos-de-telefonia-movil-y-sus-caracteristicas.jpg");
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
+
+}
+caption {
+    color: black;
+    font-weight: bold;
+}
