@@ -1,10 +1,19 @@
 <?php
+$config = 'tsconfig.json';
+$configuracionDb = json_decode(file_get_contents($config));
 
-$conexionSQL = mysqli_connect("127.0.0.1", "root", "", "telefonia");
+$hostname = $configuracionDb->dbOptions->hostname;
+$username = $configuracionDb->dbOptions->username;
+$password = $configuracionDb->dbOptions->password;
+$database = $configuracionDb->dbOptions->database;
+$conexionSQL = mysqli_connect($hostname, $username, $password, $database);
+
+//$conexionSQL = mysqli_connect("127.0.0.1", "root", "", "telefonia");
 
 $resultado = mysqli_query($conexionSQL, "SELECT * FROM usuario");
 $data = [];
 while ($unaFila = mysqli_fetch_assoc($resultado)) {
-    $data[] = $unaFila;
+    $data[] = $unaFila;//array_push($data,$unaFila);
 }
 echo json_encode($data);
+mysqli_close($conexionSQL);
