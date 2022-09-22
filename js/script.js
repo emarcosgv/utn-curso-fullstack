@@ -1,8 +1,8 @@
 fetch('listar.php').then(resultado => resultado.json()).then(registros => {
     //console.log(data);
-    let str = '';
+    let cadena = '';
     registros.map(unaFila => {
-        str += `
+        cadena += `
         <tr> 
             <td>${unaFila.id}</td>
             <td>${unaFila.usuario}</td>
@@ -18,5 +18,6 @@ fetch('listar.php').then(resultado => resultado.json()).then(registros => {
         </tr>
         `
     });
-    document.getElementById('tabla').innerHTML = str;
+    document.getElementById('tabla').innerHTML = cadena;
 });
+
