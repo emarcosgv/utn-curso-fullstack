@@ -1,9 +1,7 @@
-fetch('listar.php').
-then(resultado => resultado.json()).
-then(data => {
+fetch('listar.php').then(resultado => resultado.json()).then(registros => {
     //console.log(data);
     let str = '';
-    data.map(unaFila => {
+    registros.map(unaFila => {
         str += `
         <tr> 
             <td>${unaFila.id}</td>
@@ -15,7 +13,7 @@ then(data => {
             <td>${unaFila.marca}</td>
             <td>${unaFila.compania}</td>
             <td>${unaFila.saldo}</td>
-            <td>${(unaFila.activo==1)?'<span class="badge rounded-pill bg-success">Activo </span>' : '<span class="badge rounded-pill bg-danger">Inactivo</span>'}</td>
+            <td>${(unaFila.activo == 1) ? '<span class="badge rounded-pill bg-success">Activo </span>' : '<span class="badge rounded-pill bg-danger">Inactivo</span>'}</td>
             <td>${unaFila.fechaNacimiento}</td> 
         </tr>
         `

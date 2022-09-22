@@ -11,9 +11,9 @@ $conexionSQL = mysqli_connect($hostname, $username, $password, $database);
 //$conexionSQL = mysqli_connect("127.0.0.1", "root", "", "telefonia");
 
 $resultado = mysqli_query($conexionSQL, "SELECT * FROM usuario");
-$data = [];
+$registros = [];
 while ($unaFila = mysqli_fetch_assoc($resultado)) {
-    $data[] = $unaFila;//array_push($data,$unaFila);
+    $registros[] = $unaFila;//array_push($data,$unaFila);
 }
-echo json_encode($data);
+echo json_encode($registros);
 mysqli_close($conexionSQL);
